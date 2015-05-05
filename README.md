@@ -36,17 +36,15 @@ angular.module('myApp', [
 
 # Usage
 
-To use the `ion-autocomplete` directive in single select mode you need to add the following snippet to your template:
+To use the `ion-alpha-scroll` directive simply add the following snippet to your template:
 ```html
-<ion-autocomplete ng-model="model" />
+<ion-alpha-scroll ng-model="model" key="keyName">
+  Content Goes here...
+</ion-alpha-scroll>
 ```
+where 'ng-model' is the model you would like to sort and 'key' is the name of the key you would like to sort by.
 
-If you want to use it in multiple select mode you need to add the following snippet to your template: 
-```html
-<ion-autocomplete ng-model="model" multiple-select="true" />
-```
-
-Check out the next chapter on how to configure the directive.
+Heres a quick example:
 
 ```javascript
 $scope.callbackMethod = function (query) {
@@ -61,4 +59,4 @@ Initial inspiration and code taken from [this codepen](http://codepen.io/mikeluc
 
 # License
 
-This Ionic alpha-scroll directive is available under the MIT license.
+The Ionic alpha-scroll directive is available under the MIT license.
