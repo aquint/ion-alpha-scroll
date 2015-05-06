@@ -1,10 +1,10 @@
 angular.module('ion-alpha-scroll', [])
 .directive('ionAlphaScroll', [
-	'$ionicScrollDelegate', '$location', '$timeout',
-	function ($ionicScrollDelegate, $location, $timeout){
+	'$ionicScrollDelegate', '$location', '$timeout', '$document',
+	function ($ionicScrollDelegate, $location, $timeout, $document){
 		return{
 			require: '?ngModel',
-			restrict: 'AEC',
+			restrict: 'AE',
 			replace: true,
 			compile: function(tElement, tAttrs, tTransclude){
 				var children = tElement.contents();
@@ -22,11 +22,17 @@ angular.module('ion-alpha-scroll', [])
 					'</ion-list>'
 					].join(''));
 
+				var headerHeight = $document[0].body.querySelector('.bar-header').offsetHeight;
+				var tabHeight = $document[0].body.querySelector('.tab-nav') ? $document[0].body.querySelector('.tab-nav').offsetHeight : 0;
+				var windowHeight = window.innerHeight;
+
+				var contentHeight = windowHeight - headerHeight - tabHeight;
+
 				angular.element(template.find('ion-item')[1]).append(children);
 				tElement.html('');
       			tElement.append(template);
 				
-      			tElement.find('ion-scroll').css({"height": window.innerHeight + 'px'})
+      			tElement.find('ion-scroll').css({"height": contentHeight + 'px'});
 
 				return function (scope, element, attrs, ngModel) {
 					var count = 0;
