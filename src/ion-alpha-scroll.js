@@ -16,17 +16,18 @@ angular.module('ion-alpha-scroll', [])
 								'<ion-item ng-repeat="item in items"></ion-item>',
 							'</div>',
 						'</ion-scroll>',
-						'<ul class="ion_alpha_sidebar has-header has-subheader">',
+						'<ul class="ion_alpha_sidebar">',
 							'<li ng-click="alphaScrollGoToList(\'index_{{letter}}\')" ng-repeat="letter in alphabet">{{$index%2 == 0 ? letter: "&bull;"}}</li>',
 						'</ul>',
 					'</ion-list>'
 					].join(''));
 
 				var headerHeight = $document[0].body.querySelector('.bar-header').offsetHeight;
+				var subHeaderHeight = tAttrs.subheader === "true" ? 44 : 0;
 				var tabHeight = $document[0].body.querySelector('.tab-nav') ? $document[0].body.querySelector('.tab-nav').offsetHeight : 0;
 				var windowHeight = window.innerHeight;
 
-				var contentHeight = windowHeight - headerHeight - tabHeight;
+				var contentHeight = windowHeight - headerHeight - subHeaderHeight - tabHeight;
 
 				angular.element(template.find('ion-item')[1]).append(children);
 				tElement.html('');
