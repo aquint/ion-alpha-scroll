@@ -13,7 +13,7 @@ ion-alpha-scroll
 
 # Demo
 
-![Animated demo](https://github.com/aquint/ion-alpha-scroll/raw/master/demo.webm)
+![Animated demo](https://github.com/aquint/ion-alpha-scroll/raw/master/demo.gif)
 
 # Installation
 
