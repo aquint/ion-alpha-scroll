@@ -48,7 +48,7 @@ To display the properties of each item in the model, you can use the 'item' obje
 ```html
 	<ion-alpha-scroll ng-model="model" key="keyName">
 	  <div>Name: {{item.name}}</div>
-	  <div>Address{{item.address}}</div>
+	  <div>Address: {{item.address}}</div>
 	</ion-alpha-scroll>
 ```
 
