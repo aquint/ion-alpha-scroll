@@ -44,6 +44,14 @@ To use the `ion-alpha-scroll` directive simply add the following snippet to your
 ```
 where 'ng-model' is the model you would like to sort and 'key' is the name of the key you would like to sort by.
 
+To display the properties of each item in the model, you can use the 'item' object within the directive:
+```html
+	<ion-alpha-scroll ng-model="model" key="keyName">
+	  <div>Name: {{item.name}}</div>
+	  <div>Address{{item.address}}</div>
+	</ion-alpha-scroll>
+```
+
 Heres a quick example:
 
 services.js
