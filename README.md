@@ -38,11 +38,13 @@ angular.module('myApp', [
 
 To use the `ion-alpha-scroll` directive simply add the following snippet to your template:
 ```html
-<ion-alpha-scroll ng-model="model" key="keyName">
+<ion-alpha-scroll ng-model="model" key="keyName" subheader="true">
   Content Goes here...
 </ion-alpha-scroll>
 ```
 where 'ng-model' is the model you would like to sort and 'key' is the name of the key you would like to sort by.
+
+The 'subheader' attribute is optional, to be set if using a subheader in the view to allow proper scroll height.
 
 To display the properties of each item in the model, you can use the 'item' object within the directive:
 ```html
