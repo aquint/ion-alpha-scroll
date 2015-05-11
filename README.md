@@ -119,7 +119,7 @@ controllers.js
 ```javascript
 angular.module('example.controllers', [])
 
-.controller('contactsCtrl', ['Contacts',function(Contacts) {
+.controller('contactsCtrl', ['$scope','Contacts',function($scope, Contacts) {
  
 	$scope.contacts = Contacts.all();
 

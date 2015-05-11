@@ -45,7 +45,6 @@ angular.module('ion-alpha-scroll', [])
 	                if (!ngModel) return;
 
 	                ngModel.$render = function(){
-	                	console.log(ngModel.$viewValue);
 						scope.items = [];                	
 	                	scope.items = ngModel.$viewValue;
 	                	scope.alphabet = iterateAlphabet();
@@ -86,16 +85,6 @@ angular.module('ion-alpha-scroll', [])
 				            scope.groups[i].items.push(i + '-' + j);
 				          }
 				        }
-
-				        // $timeout(function(){
-				        // 	count++;
-				        // 	if(count<=1){
-					       //  	var height = element[0].getElementsByClassName('list')[0].offsetHeight;
-				        //         var viewHeight =document.body.children[0].offsetHeight;
-				        //         console.log(height);
-				        //         console.log(viewHeight);
-			         //     	}
-				        // }, 500)
 
 	                };
 
