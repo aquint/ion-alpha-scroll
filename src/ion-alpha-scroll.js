@@ -17,7 +17,7 @@ angular.module('ion-alpha-scroll', [])
 							'</div>',
 						'</ion-scroll>',
 						'<ul class="ion_alpha_sidebar">',
-							'<li ng-click="alphaScrollGoToList(\'index_{{letter}}\')" ng-repeat="letter in alphabet">{{$index%2 == 0 ? letter: "&bull;"}}</li>',
+							'<li ng-click="alphaScrollGoToList(\'index_{{letter}}\')" ng-repeat="letter in alphabet">{{ letter }}</li>',
 						'</ul>',
 					'</ion-list>'
 					].join(''));
@@ -32,7 +32,7 @@ angular.module('ion-alpha-scroll', [])
 				angular.element(template.find('ion-item')[1]).append(children);
 				tElement.html('');
       			tElement.append(template);
-				
+
       			tElement.find('ion-scroll').css({"height": contentHeight + 'px'});
 
 				return function (scope, element, attrs, ngModel) {
@@ -45,17 +45,17 @@ angular.module('ion-alpha-scroll', [])
 	                if (!ngModel) return;
 
 	                ngModel.$render = function(){
-						scope.items = [];                	
+						scope.items = [];
 	                	scope.items = ngModel.$viewValue;
-	                	scope.alphabet = iterateAlphabet();
 		                var tmp={};
-			            for(i=0;i<scope.items.length;i++){
-			              var letter=scope.items[i][attrs.key].toUpperCase().charAt(0);
-			              if( tmp[ letter] ==undefined){
-			              tmp[ letter]=[]
+			            for (i=0;i<scope.items.length;i++){
+		              		var letter = scope.items[i][attrs.key].toUpperCase().charAt(0);
+			              	if (tmp[letter] == undefined){
+			        			tmp[letter]=[]
+				            }
+			              	tmp[letter].push(scope.items[i]);
 			            }
-			              tmp[ letter].push( scope.items[i] );
-			            }
+	                	scope.alphabet = iterateAlphabet(tmp);
 			            scope.sorted_items = tmp;
 
 			            scope.alphaScrollGoToList = function(id){
@@ -64,12 +64,16 @@ angular.module('ion-alpha-scroll', [])
 				        }
 
 				        //Create alphabet object
-				        function iterateAlphabet()
-				        {
+				        function iterateAlphabet(alphabet){
 				           var str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+							if (Object.keys(alphabet).length != 0){
+								str = '';
+								for (var i=0; i<Object.keys(alphabet).length; i++){
+									str += Object.keys(alphabet)[i];
+								}
+							}
 				           var numbers = new Array();
-				           for(var i=0; i<str.length; i++)
-				           {
+				           for (var i=0; i<str.length; i++){
 				              var nextChar = str.charAt(i);
 				              numbers.push(nextChar);
 				           }
