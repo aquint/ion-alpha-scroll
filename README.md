@@ -139,10 +139,11 @@ contacts-list.html
 ```
 
 A pull-to-refresh handler may be added:
-```
+
 view.html
 ```html
 <ion-alpha-scroll ng-model="companies" key="name" refresher='{"text": "Pull to refresh", "callback": "refresh(true)"}'>
+```
 
 # Acknowledgements
 
