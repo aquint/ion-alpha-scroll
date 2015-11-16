@@ -1,4 +1,4 @@
-ion-alpha-scroll-refresher
+ion-alpha-scroll
 ================
 
 > Configurable Ionic directive for alphabetically indexed list with an alpha scroll bar. Provides a pull-to-refresh option.
