@@ -1,10 +1,11 @@
 {
-  "name": "ion-alpha-scroll",
-  "version": "0.1.2",
+  "name": "ion-alpha-scroll-refresher",
+  "version": "0.0.1",
   "authors": [
-    "aquint <anthonyquinton92@gmail.com>"
+    "aquint <anthonyquinton92@gmail.com>",
+	"pisapapiros <pcamino90@gmail.com>"
   ],
-  "description": "Alphabetical indexing and scrolling for ionic lists",
+  "description": "Alphabetical indexing and scrolling for ionic lists with pull-to-refresh option.",
   "main": "./src/ion-alpha-scroll.js",
   "keywords": [
     "ionic",
@@ -13,7 +14,9 @@
     "alphabetical",
     "alphabet",
     "scrolling",
-    "index"
+    "index",
+	"pull",
+	"refresh"
   ],
   "license": "MIT",
   "ignore": [
