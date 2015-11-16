@@ -8,7 +8,7 @@ angular.module('ion-alpha-scroll', [])
             replace: true,
             compile: function(tElement, tAttrs, tTransclude) {
                 var children = tElement.contents();
-                var template = angular.element([
+                var templateElements = [
                     '<ion-list class="ion_alpha_list_outer">',
                     '<ion-scroll delegate-handle="alphaScroll">',
                     '<div data-ng-repeat="(letter, items) in sorted_items" class="ion_alpha_list">',
@@ -20,7 +20,14 @@ angular.module('ion-alpha-scroll', [])
                     '<li ng-click="alphaScrollGoToList(\'index_{{letter}}\')" ng-repeat="letter in alphabet | orderBy: letter">{{ letter }}</li>',
                     '</ul>',
                     '</ion-list>'
-                ].join(''));
+                ];
+				
+				var refresher = angular.fromJson(tAttrs.refresher);
+			    if (refresher) {
+					var refresherElement = '<ion-refresher pulling-text="' + refresher.text + '" on-refresh="' + refresher.callback + '"> </ion-refresher>';
+					templateElements.splice(2, 0, refresherElement);
+			    }
+			    var template = angular.element(templateElements.join(''));
 
                 var headerHeight = $document[0].body.querySelector('.bar-header').offsetHeight;
                 var subHeaderHeight = tAttrs.subheader === "true" ? 44 : 0;

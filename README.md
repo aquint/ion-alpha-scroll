@@ -1,7 +1,7 @@
 ion-alpha-scroll
 ================
 
-> Configurable Ionic directive for alphabetically indexed list with an alpha scroll bar.
+> Configurable Ionic directive for alphabetically indexed list with an alpha scroll bar. Provides a pull-to-refresh option.
 
 #Table of contents
 
@@ -136,6 +136,13 @@ contacts-list.html
     </ion-alpha-scroll>
   </ion-content>
 </ion-view>
+```
+
+A pull-to-refresh handler may be added:
+
+view.html
+```html
+<ion-alpha-scroll ng-model="companies" key="name" refresher='{"text": "Pull to refresh", "callback": "refresh(true)"}'>
 ```
 
 # Acknowledgements
