@@ -3,7 +3,7 @@ ion-alpha-scroll
 
 > Configurable Ionic directive for alphabetically indexed list with an alpha scroll bar.
 
-#Table of contents
+# Table of contents
 
 - [Demo](#demo)
 - [Installation](#installation)
